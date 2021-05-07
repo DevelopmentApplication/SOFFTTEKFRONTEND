@@ -1,0 +1,34 @@
+
+
+
+<ng-container *ngIf="loading; else elseTemplate">
+  <div class="loading-indicator">
+    <mat-progress-spinner mode="indeterminate" color="accent"></mat-progress-spinner>
+  </div>
+</ng-container>
+<ng-template #elseTemplate>
+  <mat-card>
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{weather.name}}</mat-card-title>
+      <mat-card-subtitle>{{weather.sys.country}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>    
+      <p>Fecha: {{hour}}</p>
+      <p style="text-align: center; font-weight: bold;">{{weather.weather[0].description}}</p>
+      <p>Temperatura Fahrenheit °: {{weather.main.temp}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Temperatura Mínima: {{weather.main.temp_min}}</button>
+      <button mat-button>Temperatura Máxima: {{weather.main.temp_max}}</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>
+
+
+
+
+
+
+
+
