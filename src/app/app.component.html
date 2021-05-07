@@ -1,9 +1,17 @@
 
 <!-- Toolbar -->
 <!-- <router-outlet></router-outlet> -->
-<div class="loading-indicator">
-  <mat-progress-spinner *ngIf="loading" mode="indeterminate" color="accent"></mat-progress-spinner>
-</div>
+<mat-toolbar color="primary">  
+  <button mat-button [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>SOFTTEK</span>
+  <mat-menu #menu="matMenu">
+  </mat-menu>
+</mat-toolbar>
+
+<p *ngIf="loading" class="title">Obteniendo datos del clima...</p>
+
 <mat-grid-list cols="3" rowHeight="2:1">
   <mat-grid-tile *ngFor="let countryCoord of countryCoords; index as i;">
     <app-weather [countryCoord]="countryCoord"></app-weather>
